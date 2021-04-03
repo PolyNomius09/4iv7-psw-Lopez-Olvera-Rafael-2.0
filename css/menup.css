@@ -23,28 +23,44 @@
 
 @keyframes animacion_test{
     from{
-        background-color: palegreen;
+        background-color:  rgb(92, 102, 255);
     }
     to{
-        background-color: rgb(220, 255, 220);
+        background-color:  rgb(30, 33, 202);
     }
 }
 
 
 nav{
-    background-color: orange;
+    background-color: rgb(25, 71, 122);
     font-size: 28px;
-    text-align: center;
+    text-align: left;
     border-radius: 100px; 
-    border: 0.5px solid black;
+    border: 0.5px solid rgb(25, 71, 122);
+    color: rgb(255, 255, 255);
 }
 
-section, footer{
+section{
     background-color: yellowgreen;
     text-align: center;
     align-items: center;
     border-radius: 10px; 
-    border: 0.5px solid black;
+    border: 0.5px solid yellowgreen;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+class{
+
+}
+
+footer{
+    background-color: rgb(25, 71, 122);
+    text-align: left;
+    align-items: left;
+    border-radius: 10px; 
+    border: 0.5px solid  rgb(25, 71, 122);
+    color: rgb(255, 255, 255);
 }
 
 p{
@@ -84,8 +100,8 @@ transform: scale(0);
 transition: 0.5s;
 }
 a:before {
-border-bottom: 2px solid rgb(0, 0, 0);
-border-left: 2px solid rgb(0, 0, 0);
+border-bottom: 2px solid rgb(172, 60, 60);
+border-left: 2px solid rgb(173, 33, 33);
 transform-origin: 0 100%;
 }
 a:after {
@@ -100,7 +116,7 @@ transform: scale(1);
 }
 
 body{
-    background-color: palegreen;
+    background-color: rgb(220, 152, 251);
 
     animation: animacion_test;
     animation-duration: 2s;
