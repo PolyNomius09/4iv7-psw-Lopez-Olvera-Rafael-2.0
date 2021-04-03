@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema 8</title>
+    <link rel="shortcut icon" href="img/code.png">
+    <link rel="stylesheet" href="css/problema.css">
+    <script src="js/problema08.js" ></script>
+</head>
+<body>
+    <a href="menup.html">Regresar al menú de ejercicios </a>
+    <p>
+        Instrucción: Leer 3 numeros diferentes e imprimir el mayor  
+       </p>
+       <br>
+       <h1>La maquina donde solo gana el mayor</h1>
+   
+       <form name="formulario" method="get" action="problema08.html">
+           <table align="center" border="0";>
+               <tr>
+                   <td class="td_up" >Introduce un primer numero</td>
+                   <td class="td_down" > <input type="text" name="Num1"
+                   onkeypress="return validarn(event)"> </td>
+               </tr>
+               <tr>
+                   <td class="td_up" >Introduce un segundo numero</td>
+                   <td class="td_down" > <input type="text" name="Num2"
+                   onkeypress="return validarn(event)"> </td>
+               </tr>
+               <tr>
+                <td class="td_up" >Introduce un tercer numero</td>
+                <td class="td_down" > <input type="text" name="Num3"
+                onkeypress="return validarn(event)"> </td>
+               </tr>
+               <tr>
+                   <td></td>
+                   <td class="td_down"> <input type="button" value="Comparar"
+                       name="enviar" onclick="caldo()"> </td>
+               </tr>
+               <tr>
+                   <td class="td_up" >El numero mas grande es...</td>
+                   <td class="td_down"> <input type="text" name="Numga"
+                       id="cantidadti" readonly="readonly" 
+                       class="input_text"> </td>
+               </tr>               
+               <tr>
+                   <td></td>
+                   <td class="td_down"> <input type="button" name="borrard" 
+                       value="Borrar" onclick="borrar()"> </td>
+               </tr>
+           </table>
+       </form>
+       <br>
+
+</body>
+</html>

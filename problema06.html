@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema 6</title>
+    <link rel="shortcut icon" href="img/code.png">
+    <script src="js/problema06.js" ></script>
+    <link rel="stylesheet" href="css/problema.css">
+</head>
+<body>
+    <a href="menup.html">Regresar al menú de ejercicios </a>
+    <p>
+        Realizar un algoritmo para calcular la edad de las personas
+    </p>
+    <h1>Calculadora de edad</h1>
+    <form name="formulario" method="get" action="problema02.html">
+        <table align="center" border="0";>
+            <tr>
+                <td class="td_up" >Introduce el año en que naciste:</td>
+                <td class="td_down" > <input type="text" name="añon"
+                onkeypress="return validarn(event)"> </td>
+            </tr>
+            <tr>
+                <td class="td_up" >Introduce el año actual:</td>
+                <td class="td_down" > <input type="text" name="añoc"
+                onkeypress="return validarn(event)"> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="td_down"> <input type="button" value="Calcular"
+                    name="enviar" onclick="Caledad()"> </td>
+            </tr>
+            <tr>
+                <td class="td_up" >Actualmente usted tiene:</td>
+                <td class="td_down"> <input type="text" name="edad"
+                    id="cantidadti" readonly="readonly" 
+                    class="input_text"> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="td_down"> <input type="button" name="borrard" 
+                    value="Borrar datos" onclick="borrar()"> </td>
+            </tr>
+        </table>
+    </form>
+    <br>
+    
+    
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema 4</title>
+    <link rel="shortcut icon" href="img/code.png">
+    <script src="js/problema04.js" ></script>
+    <link rel="stylesheet" href="css/problema.css">
+</head>
+<body>
+    <a href="menup.html">Regresar al menú de ejercicios </a>
+    <p>Un alumno desea saber su calificación final, la cual se compone de 3 rubros
+        <ul>
+            <li>55% promedio de las tres calificaciones parciales</li>
+            <li>30% de la calificación del examen final</li>
+            <li>15% de la calificación de un trabajo final</li>
+        </ul>
+    </p>
+    <h1>¿Cuál es mi calificación final?</h1>
+
+    <form name="formulario" method="get" action="problema04.html">
+        <table align="center" border="0";>
+            <tr>
+                <td class="td_up" >Ingresa la calificación del primer parcial</td>
+                <td class="td_down" > <input type="text" name="primer"
+                onkeypress="return validarn(event)"> </td>
+            </tr>
+            <tr>
+                <td class="td_up" >Ingresa la calificación del segundo parcial</td>
+                <td class="td_down" > <input type="text" name="segundo"
+                onkeypress="return validarn(event)"> </td>
+            </tr>
+            <tr>
+                <td class="td_up" >Ingresa la calificación del tercer parcial</td>
+                <td class="td_down" > <input type="text" name="tercero"
+                onkeypress="return validarn(event)"> </td>
+            </tr>
+            <tr>
+                <td class="td_up" >Introduce la califiación del examen final</td>
+                <td class="td_down" > <input type="text" name="exfinal"
+                onkeypress="return validarn(event)"> </td>
+            </tr>
+            <tr>
+                <td class="td_up" >Ingresa la calificación del trabajo final</td>
+                <td class="td_down" > <input type="text" name="trfinal"
+                onkeypress="return validarn(event)"> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="td_down"> <input type="button" value="Obtener calificación"
+                    name="enviar" onclick="obtener()"> </td>
+            </tr>
+            <tr>
+                <td class="td_up" >Su calificación final es:</td>
+                <td class="td_down"> <input type="text" name="calificacion"
+                    id="cantidadti" readonly="readonly" 
+                    class="input_text"> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="td_down"> <input type="button" name="borrard" 
+                    value="Colocar otro datos" onclick="borrar()"> </td>
+            </tr>
+        </table>
+    </form>
+    <br>
+    
+
+    
+</body>
+</html>

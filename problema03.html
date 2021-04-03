@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema 3</title>
+    <link rel="shortcut icon" href="img/code.png">
+    <script src="js/problema03.js" ></script>
+    <link rel="stylesheet" href="css/problema.css">
+</head>
+<body>
+     <a href="menup.html">Regresar al menú de ejercicios </a>
+    <p>Descuento del 15% en una tienda</p>
+    <h1>¿Cuánto debo pagar por el total de mi compra?</h1>
+
+    <form name="formulario" method="get" action="problema03.html">
+        <table align="center" border="0";>
+            <tr>
+                <td class="td_up" >Introduce el monto de tu compra:$</td>
+                <td class="td_down" > <input type="text" name="compra"
+                onkeypress="return validarn(event)"> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="td_down"> <input type="button" value="Calcular total a pagar"
+                    name="enviar" onclick="descuento()"> </td>
+            </tr>
+            <tr>
+                <td class="td_up" >Usted debería pagar un total de:</td>
+                <td class="td_down"> <input type="text" name="total"
+                    id="cantidadti" readonly="readonly" 
+                    class="input_text"> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="td_down"> <input type="button" name="borrard" 
+                    value="Borrar" onclick="borrar()"> </td>
+            </tr>
+        </table>
+    </form>
+    <br>
+   
+    
+</body>
+</html>

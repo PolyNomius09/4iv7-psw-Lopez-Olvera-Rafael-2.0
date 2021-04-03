@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema 10</title>
+    <link rel="shortcut icon" href="img/code.png">
+    <link rel="stylesheet" href="css/problema.css">
+    <script src="js/problema10.js" ></script>
+</head>
+<body>
+    <a href="menup.html">Regresar al menú de ejercicios </a>
+    <p>
+        Instrucción: Se requiere calcular la utilidad de un trabajador 
+       </p>
+       <br>
+       <h1>Calculadora de utilidad anual</h1>
+   
+       <form name="formulario" method="get" action="problema02.html">
+           <table align="center" border="0";>
+               <tr>
+                   <td class="td_up" >Introduce el monto de tu sueldo base:$</td>
+                   <td class="td_down" > <input type="text" name="sueldo"
+                   onkeypress="return validarn(event)"> </td>
+               </tr>
+               <tr>
+                   <td class="td_up" >Introduce el numero de meses que lleva laborando:</td>
+                   <td class="td_down" > <input type="text" name="meses"
+                   onkeypress="return validarn(event)"> </td>
+               </tr>
+               <tr>
+                   <td></td>
+                   <td class="td_down"> <input type="button" value="Calcular"
+                       name="enviar" onclick="utilidad()"> </td>
+               </tr>
+               <tr>
+                   <td class="td_up" >Su valor de utilidad es de:</td>
+                   <td class="td_down"> <input type="text" name="util"
+                       id="cantidadti" readonly="readonly" 
+                       class="input_text"> </td>
+               </tr>
+               <tr>
+                   <td></td>
+                   <td class="td_down"> <input type="button" name="borrard" 
+                       value="Borrar" onclick="borrar()"> </td>
+               </tr>
+           </table>
+       </form>
+</body>
+</html>

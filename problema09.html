@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema 9</title>
+    <link rel="shortcut icon" href="img/code.png">
+    <link rel="stylesheet" href="css/problema.css">
+    <script src="js/problema09.js" ></script>
+</head>
+<body>
+    <a href="menup.html">Regresar al menú de ejercicios </a>
+    <p>
+        Instrucción: Determina la cantidad de dinero que recibira un trabajador por concepto 
+        de las horas extra trabajadas, sabiendo que cuando las horas de trabajo exceden de 40, el resto
+        se consideran horas extra y que estas se pagan al doble de una hora normal cuando no exceden de 8;
+        si las horas extras exceden de 8 se pagan las primeras 8 al doble y el resto al triple.  
+       </p>
+       <br>
+       <h1>Calcula tu dinero en la empresa explotadora</h1>
+   
+       <form name="formulario" method="get" action="problema02.html">
+           <table align="center" border="0";>
+               <tr>
+                   <td class="td_up" >Introduce el monto de tu sueldo por hora:$</td>
+                   <td class="td_down" > <input type="text" name="sueldo"
+                   onkeypress="return validarn(event)"> </td>
+               </tr>
+               <tr>
+                   <td class="td_up" >Introduce el numero de horas trabajadas</td>
+                   <td class="td_down" > <input type="text" name="horas"
+                   onkeypress="return validarn(event)"> </td>
+               </tr>
+               <tr>
+                   <td></td>
+                   <td class="td_down"> <input type="button" value="Calcular"
+                       name="enviar" onclick="sueldito()"> </td>
+               </tr>
+               <tr>
+                   <td class="td_up" >Usted debería cobrar:</td>
+                   <td class="td_down"> <input type="text" name="sueldote"
+                       id="cantidadti" readonly="readonly" 
+                       class="input_text"> </td>
+               </tr>
+               <tr>
+                   <td></td>
+                   <td class="td_down"> <input type="button" name="borrard" 
+                       value="Borrar" onclick="borrar()"> </td>
+               </tr>
+           </table>
+       </form>
+</body>
+</html>
