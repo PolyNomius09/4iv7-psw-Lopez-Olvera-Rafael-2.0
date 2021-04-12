@@ -7,10 +7,6 @@
     }
 }
 
-.a{
-    color: white;
-}
-
 .td_up{
     align-items: right;
     text-align: right;
@@ -81,8 +77,4 @@ body{
     animation-duration: 2s;
     animation-direction: alternate;
     animation-iteration-count: infinite;
-}
-
-section{
-    color: white;
 }
