@@ -11,6 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+import java.sql.Statement;
+
+import java.sql.ResultSet;
+import javax.servlet.ServletConfig;
 /**
  *
  * @author pc
@@ -26,6 +33,44 @@ public class Registro extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    
+    private Connection con;
+    private Statement set;
+    private ResultSet rs;
+    
+    public void init (ServletConfig cfg) throws ServletException{
+        
+        String url = "jdbc:mysql:3306//localhost/registro4iv7";
+        
+      
+        String userName = "root";
+        String password = "rafaellopez09";
+        
+        try{
+            
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            //"jdbc:mysql://localhost/registro4iv7"
+            
+            
+            con = DriverManager.getConnection(url, userName, password);
+            set = con.createStatement();
+            
+            System.out.println("Se a conectado a la BD");
+            
+        }catch(Exception e ){
+        
+        System.out.println("No se a conectado a la BD");
+        System.out.println(e.getMessage());
+        System.out.println(e.getStackTrace());
+        
+        }   
+    }
+    
+  
+    
+    
     protected void processRequest(HttpServletRequest request, 
             HttpServletResponse response)
             throws ServletException, IOException {
@@ -51,6 +96,15 @@ public class Registro extends HttpServlet {
             correo = request.getParameter("email");
 
             edad = Integer.parseInt(request.getParameter("edad"));
+
+            try{
+            
+            String q = "insert into Mregistro "
+                    + "(nom usu, appat usu, apmat usu, edad usu, email usu)"
+                    + "vaules "
+                    + "('"+nom+"', '"+appat+"', '"+appmat+"', "+edad+", '"+correo+"')";
+            
+            set.executeUpdate(q);
 
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -81,6 +135,26 @@ public class Registro extends HttpServlet {
                     + "<a href='index.html'>Regresar al Formulario</a>");
             out.println("</body>");
             out.println("</html>");
+            
+            System.out.println("Datos Registrados en la tabla");
+            
+            }catch(Exception e ){
+                
+                System.out.println("No se Registrarom los datos en la tabla");
+                System.out.println(e.getMessage());
+                System.out.println(e.getStackTrace());
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Registro de Usuarios</title>");            
+                out.println("</head>");
+                out.println("<body>"
+                        + "<h1>No se pudo registrar, hubo un error</h1>"
+                        + "<a href='index.html'>Regresar al Formulario</a>");
+            out.println("</body>");
+            out.println("</html>");
+                
+            }
         }
     }
 
