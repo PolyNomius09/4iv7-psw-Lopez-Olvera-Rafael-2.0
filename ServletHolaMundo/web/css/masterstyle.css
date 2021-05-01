@@ -1,0 +1,80 @@
+:root{
+    --fuentePrincipal: 'Poppins', sans-serif;
+    --azul: #335c67;
+    --azulOscuro: #284952;
+    --letra: #FFFCEB;
+    --fondo: #fff3b0;
+    --naranja: #e09f3e;
+    --rojoClaro: #9e2a2b;
+    --rojoOscuro: #540b0e;
+}
+
+html{
+    box-sizing: border-box;
+    font-family: var(--fuentePrincipal);
+    background-color: var(--fondo);
+}
+
+.activo{
+    background-color: var(--rojoClaro);
+}
+
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
+a{
+    text-decoration: none;
+    color: var(--letra);
+    padding: 10px;
+}
+
+/** Configuración del header**/
+
+.cabezera{
+    display: flex;
+    justify-content: center;
+    color: var(--azulOscuro);
+}
+
+/** Configuración del nav**/
+.menu{
+    background-color: var(--azul);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+}
+
+a:hover{
+    background-color: var(--rojoClaro);
+}
+
+/** Configuración de la vista **/
+.vista{
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.largo{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 10px;
+}
+
+/** Configuración del footer **/
+
+.pie{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--rojoOscuro);
+    color: var(--letra);
+}

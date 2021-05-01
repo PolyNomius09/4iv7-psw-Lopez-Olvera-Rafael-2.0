@@ -23,16 +23,17 @@ import javax.servlet.ServletConfig;
  *
  * @author pc
  */
-@WebServlet(urlPatterns = {"/Eliminar"})
-public class Eliminar extends HttpServlet {
+@WebServlet(urlPatterns = {"/Consulta"})
+public class Consulta extends HttpServlet {
     
     private Connection con;
     private Statement set;
     private ResultSet rs;
     
+    //Servlet constructor
     public void init(ServletConfig cfg) throws ServletException{
         
-        String URL = "jdbc:mysql:3306//localhost/registro";
+        String URL = "jdbc:mysql:3306//localhost/registrocrud";
         String userName = "bd6541db95b7aa";
         String passWord = "718b88a6";
         
@@ -80,28 +81,9 @@ public class Eliminar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            int id;
-
-            id = Integer.parseInt(request.getParameter("ideliminar"));
-
-            String q = "delete from mregistro where id_usu = " + id;
-            
+            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>\n" +
 "<!--\n" +
 "To change this license header, choose License Headers in Project Properties.\n" +
@@ -129,42 +111,82 @@ public class Eliminar extends HttpServlet {
 "            <div class=\"menu\">\n" +
 "                <nav>\n" +
 "                    <a href=\"index.html\">Registrar usuario</a>\n" +
-"                    <a href=\"Consulta\">Consultar usuarios</a>\n" +
-"                    <a class=\"activo\" href=\"eliminar.html\">Eliminar usuairo</a>\n" +
+"                    <a class=\"activo\" href=\"Consulta\">Consultar usuarios</a>\n" +
+"                    <a href=\"eliminar.html\">Eliminar usuairo</a>\n" +
 "                    <a href=\"cambiar.html\">Cambiar datos de usuario</a>\n" +
 "                </nav>\n" +
 "            </div>\n" +
-"            <div class=\"vista\">\n");
+"            <div class=\"vista\">");
+            out.println("<table border='1'>");
+            out.println("<caption>Usuarios Registrados</caption>");
+            out.println("<tbody>");
+            out.println("<tr>"
+                        + "<th>ID</th>"
+                        + "<th>Nombre completo</th>"
+                        + "<th>Correo</th>"
+                    + "</tr>");
             try{
                 
-                set.executeUpdate(q);
-                System.out.println("Registro eliminado");
-                out.println("<h1>Usuario Eliminado</h1>");
+                String nombre, apellidoP, apellidoM, correo;
+                int id;
+                
+                String q = "select * from mregistro";
+                
+                set = con.createStatement();
+                rs = set.executeQuery(q);
+                
+                while(rs.next()){
+                    id = rs.getInt("id_usu");
+                    nombre = rs.getString("nom_usu");
+                    apellidoP = rs.getString("appat_usu");
+                    apellidoM = rs.getString("apmat_usu");
+                    correo = rs.getString("correo_usu");
+                    out.println("<tr>"
+                        + "<td>"+id+"</td>"
+                        + "<td>" + nombre + " " + apellidoP + " " + apellidoM +"</td>"
+                        + "<td>" + correo + "</td>"
+                    + "</tr>");
+                    
+                }
+                
+                System.out.println("Consulta Exitosa");
                 
             }catch(Exception e){
-                
-                out.println("<h1>Usuario no eliminado</h1>");
-                System.out.println("No se pudo eliminar el usuario");
+                System.out.println("Consulta fallida");
                 System.out.println(e.getMessage());
                 System.out.println(e.getStackTrace());
-                
             }
-            try{
-                rs.close();
-                set.close();
-            }catch(Exception e){
-                
-            }
+            out.println("</tbody>");
             out.println("</div>\n" +
-"        </main>\n" +
-"        <footer class=\"pie\">\n" +
+"        </main>");
+            out.println("<footer class=\"pie\">\n" +
 "            <h3>Por: Casillas Aviña Gael Emiliano</h3>\n" +
 "            <h4>Grupo: 4IV8</h4>\n" +
 "        </footer>\n" +
 "    </body>\n" +
 "</html>\n" +
 "");
+            try{
+                rs.close();
+                set.close();
+            }catch(Exception e){
+            
+            }
         }
+       
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
     }
     
     public void destroy(){

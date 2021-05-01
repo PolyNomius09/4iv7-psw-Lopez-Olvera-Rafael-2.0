@@ -25,28 +25,17 @@ and open the template in the editor.
         <main>
             <div class="menu">
                 <nav>
-                    <a class="activo" href="index.html">Registrar usuario</a>
+                    <a href="index.html">Registrar usuario</a>
                     <a href="Consulta">Consultar usuarios</a>
-                    <a href="eliminar.html">Eliminar usuairo</a>
+                    <a class="activo" href="eliminar.html">Eliminar usuairo</a>
                     <a href="cambiar.html">Cambiar datos de usuario</a>
                 </nav>
             </div>
             <div class="vista">
-                <h2>Registrar de usuario</h2>
-                <form method="post" name="registrar" action="Registro">
-                    <label>Nombre:</label>
-                    <input class="nombre" name="nombre" type="text" placeholder="Nombre" onkeypress="return validarC(event)" onkeydown="if(this.value.length == 20) return false;"/>
-                    <br>
-                    <label>Apellido paterno:</label>
-                    <input name="appat" type="text" placeholder="Apellido Paterno" onkeypress="return validarC(event)" onkeydown="if(this.value.length == 20) return false;"/>
-                    <br>
-                    <label>Apellido materno:</label>
-                    <input name="apmat" type="text" placeholder="Apellido Materno" onkeypress="return validarC(event)" onkeydown="if(this.value.length == 20) return false;"/>
-                    <br>
-                    <label>Correo electrónico:</label>
-                    <input name="email" type="email" placeholder="ejemplo@ejemplo.com" onkeypress="return validarD(event)" onkeydown="if(this.value.length == 50) return false;"/>
-                    <br>
-                    <input type="submit" value="Enviar registro" onclick="return validarCampos()"/>
+                <form method="post" action="Eliminar">
+                    <label>Id usuario:</label>
+                    <input type="number" name="ideliminar" placeholder="Id usuario" onkeypress="return validarN(event)" onkeydown="if(this.value.length == 10) return false;"/>
+                    <input type="submit" value="Eliminar pibe">
                 </form>
             </div>
         </main>

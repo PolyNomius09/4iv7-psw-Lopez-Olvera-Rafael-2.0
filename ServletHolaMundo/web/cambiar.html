@@ -25,28 +25,25 @@ and open the template in the editor.
         <main>
             <div class="menu">
                 <nav>
-                    <a class="activo" href="index.html">Registrar usuario</a>
+                    <a href="index.html">Registrar usuario</a>
                     <a href="Consulta">Consultar usuarios</a>
                     <a href="eliminar.html">Eliminar usuairo</a>
-                    <a href="cambiar.html">Cambiar datos de usuario</a>
+                    <a class="activo" href="cambiar.html">Cambiar datos de usuario</a>
                 </nav>
             </div>
             <div class="vista">
-                <h2>Registrar de usuario</h2>
-                <form method="post" name="registrar" action="Registro">
+                <form class="largo" method="post" action="Actualizar">
+                    <label>Id usuario:</label>
+                    <input type="number" name="idactualizar" placeholder="Id de usuario" onkeypress="return validarN(event)" onkeydown="if(this.value.length == 10) return false;">
                     <label>Nombre:</label>
-                    <input class="nombre" name="nombre" type="text" placeholder="Nombre" onkeypress="return validarC(event)" onkeydown="if(this.value.length == 20) return false;"/>
-                    <br>
+                    <input type="text" name="nombreCambiar" placeholder="Id de usuario" onkeypress="return validarC(event)" onkeydown="if(this.value.length == 20) return false;">
                     <label>Apellido paterno:</label>
-                    <input name="appat" type="text" placeholder="Apellido Paterno" onkeypress="return validarC(event)" onkeydown="if(this.value.length == 20) return false;"/>
-                    <br>
+                    <input type="text" name="appatCambiar" placeholder="Apellido a cambiar" onkeypress="return validarC(event)" onkeydown="if(this.value.length == 20) return false;">
                     <label>Apellido materno:</label>
-                    <input name="apmat" type="text" placeholder="Apellido Materno" onkeypress="return validarC(event)" onkeydown="if(this.value.length == 20) return false;"/>
-                    <br>
-                    <label>Correo electrónico:</label>
-                    <input name="email" type="email" placeholder="ejemplo@ejemplo.com" onkeypress="return validarD(event)" onkeydown="if(this.value.length == 50) return false;"/>
-                    <br>
-                    <input type="submit" value="Enviar registro" onclick="return validarCampos()"/>
+                    <input type="text" name="apmatCambiar" placeholder="Apellido a cambiar" onkeypress="return validarC(event)" onkeydown="if(this.value.length == 20) return false;">
+                    <label>Correo:</label>
+                    <input type="text" name="correoCambiar" placeholder="Correo a cambiar" onkeypress="return validarD(event)" onkeydown="if(this.value.length == 20) return false;">
+                    <input type="submit" value="cambiar" />
                 </form>
             </div>
         </main>

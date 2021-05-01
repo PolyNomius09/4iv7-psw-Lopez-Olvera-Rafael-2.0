@@ -23,16 +23,17 @@ import javax.servlet.ServletConfig;
  *
  * @author pc
  */
-@WebServlet(urlPatterns = {"/Eliminar"})
-public class Eliminar extends HttpServlet {
+@WebServlet(urlPatterns = {"/Actualizar"})
+public class Actualizar extends HttpServlet {
     
     private Connection con;
     private Statement set;
     private ResultSet rs;
     
+    //Servlet constructor
     public void init(ServletConfig cfg) throws ServletException{
         
-        String URL = "jdbc:mysql:3306//localhost/registro";
+        String URL = "jdbc:mysql:3306//us-cdbr-east-03.cleardb.com/registro";
         String userName = "bd6541db95b7aa";
         String passWord = "718b88a6";
         
@@ -66,6 +67,7 @@ public class Eliminar extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -95,13 +97,16 @@ public class Eliminar extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+            /* TODO output your page here. You may use following sample code. */
             int id;
-
-            id = Integer.parseInt(request.getParameter("ideliminar"));
-
-            String q = "delete from mregistro where id_usu = " + id;
+            String nombre, appat, apmat, correo;
             
+            nombre = request.getParameter("nombreCambiar");
+            appat = request.getParameter("appatCambiar");
+            apmat = request.getParameter("apmatCambiar");
+            correo = request.getParameter("correoCambiar");
+
+            id = Integer.parseInt(request.getParameter("idactualizar"));
             out.println("<!DOCTYPE html>\n" +
 "<!--\n" +
 "To change this license header, choose License Headers in Project Properties.\n" +
@@ -119,7 +124,7 @@ public class Eliminar extends HttpServlet {
 "        <link rel=\"stylesheet\" href=\"./css/normalize.css\" >\n" +
 "        <link rel=\"preload\" href=\"./css/masterstyle.css\" as=\"style\">\n" +
 "        <link href=\"./css/masterstyle.css\" rel=\"stylesheet\" />\n" +
-                    "        <link rel=\"icon\" href=\"./img/a.ico\"/>\n" +
+"        <link rel=\"icon\" href=\"./img/a.ico\"/>\n" +
 "    </head>\n" +
 "    <body>\n" +
 "        <header class=\"cabezera\">\n" +
@@ -130,32 +135,58 @@ public class Eliminar extends HttpServlet {
 "                <nav>\n" +
 "                    <a href=\"index.html\">Registrar usuario</a>\n" +
 "                    <a href=\"Consulta\">Consultar usuarios</a>\n" +
-"                    <a class=\"activo\" href=\"eliminar.html\">Eliminar usuairo</a>\n" +
-"                    <a href=\"cambiar.html\">Cambiar datos de usuario</a>\n" +
+"                    <a href=\"eliminar.html\">Eliminar usuairo</a>\n" +
+"                    <a class=\"activo\" href=\"cambiar.html\">Cambiar datos de usuario</a>\n" +
 "                </nav>\n" +
 "            </div>\n" +
 "            <div class=\"vista\">\n");
             try{
                 
-                set.executeUpdate(q);
-                System.out.println("Registro eliminado");
-                out.println("<h1>Usuario Eliminado</h1>");
+                if(! "".equals(nombre)){
+                    String q = "update mregistro set nom_usu='" + nombre + "' where id_usu="+id;
+                    set.executeUpdate(q);
+
+                    System.out.println("Registro actualizado");
+                    out.println("<h1>Nombre actualizado</h1>");
+                }else{
+                    out.println("<h1>Nombre no actualizado</h1>");
+                }
+                if(! "".equals(appat)){
+                    String q = "update mregistro set appat_usu='" + appat + "' where id_usu="+id;
+                    set.executeUpdate(q);
+
+                    System.out.println("Registro actualizado");
+                    out.println("<h1>Apellido paterno actualizado</h1>");
+                }else{
+                    out.println("<h1>Apellido paterno no actualizado</h1>");
+                }
+                if(! "".equals(apmat)){
+                    String q = "update mregistro set apmat_usu='" + apmat + "' where id_usu="+id;
+                    set.executeUpdate(q);
+
+                    System.out.println("Registro actualizado");
+                    out.println("<h1>Apellido materno actualizado</h1>");
+                }else{
+                    out.println("<h1>Apellido materno no actualizado</h1>");
+                }
+                if(! "".equals(correo)){
+                    String q = "update mregistro set correo_usu='" + correo + "' where id_usu="+id;
+                    set.executeUpdate(q);
+
+                    System.out.println("Registro actualizado");
+                    out.println("<h1>Correo actualizado</h1>");
+                }else{
+                    out.println("<h1>Correo no actualizado</h1>");
+                }
                 
             }catch(Exception e){
                 
-                out.println("<h1>Usuario no eliminado</h1>");
-                System.out.println("No se pudo eliminar el usuario");
+                out.println("<h1>Usuario no actualizado</h1>");
                 System.out.println(e.getMessage());
                 System.out.println(e.getStackTrace());
                 
             }
-            try{
-                rs.close();
-                set.close();
-            }catch(Exception e){
-                
-            }
-            out.println("</div>\n" +
+            out.print("</div>\n" +
 "        </main>\n" +
 "        <footer class=\"pie\">\n" +
 "            <h3>Por: Casillas Aviña Gael Emiliano</h3>\n" +
@@ -164,6 +195,13 @@ public class Eliminar extends HttpServlet {
 "    </body>\n" +
 "</html>\n" +
 "");
+            
+            try{
+                rs.close();
+                set.close();
+            }catch(Exception e){
+            
+            }
         }
     }
     
